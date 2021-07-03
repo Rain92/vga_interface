@@ -45,5 +45,5 @@ make && ./obj_dir/Vvgasim_window
 MiniFB: https://github.com/emoon/minifb \
 The PS/2 keyboard controller is based on https://forum.digikey.com/t/ps-2-keyboard-to-ascii-converter-vhdl/12616 and was portet to SystemVerilog. \
 The VGA resistor network DAC is based on http://retroramblings.net/?p=190. \
-The font file and inspiration is taken from https://github.com/dmitrybarsukov/fpga-text-to-vga.
-https://github.com/gipi/electronics-notes/tree/master/fpga/mojo/VGAGlyph was a very useful recource helping me to implement the simulator.
+The font file and inspiration is taken from https://github.com/dmitrybarsukov/fpga-text-to-vga. \
+https://github.com/gipi/electronics-notes/tree/master/fpga/mojo/VGAGlyph was a very useful recource helping me to implement the simulator. \
