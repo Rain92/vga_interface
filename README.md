@@ -28,7 +28,7 @@ It uses MiniFb to display the VGA frames in real time in a window and also inclu
 To run the simulator MiniFB has to be built first:
 
 ```
-cd sim\minifb\build
+cd sim\minifb
 mkdir build
 cd build
 cmake .. -DUSE_OPENGL_API=OFF -DUSE_WAYLAND_API=OFF
