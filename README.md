@@ -4,6 +4,7 @@ A functional FPGA VGA and PS/2 Keyboard interface written in SystemVerilog inclu
 
 ## Source
 rtl/ includes the SystemVerilog logic and top level modules for a real FPGA and for simulation.
+The ps/2 keyboard controller is based on https://forum.digikey.com/t/ps-2-keyboard-to-ascii-converter-vhdl/12616 and was portet to SystemVerilog.
 
 ## Project
 project/ includes the Vivado project files targeting an ebaz4205 FPGA.
