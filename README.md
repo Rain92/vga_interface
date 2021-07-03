@@ -32,6 +32,7 @@ cd sim\minifb
 mkdir build
 cd build
 cmake .. -DUSE_OPENGL_API=OFF -DUSE_WAYLAND_API=OFF
+make
 cd ../..
 ```
 
