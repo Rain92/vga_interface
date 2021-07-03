@@ -11,6 +11,8 @@
 sim/obj_dir/*
 sim/frames/*
 sim/minifb/build/*
+symbiflow/*
+
 
 ## log files
 *.log

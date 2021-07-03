@@ -1,6 +1,6 @@
 # 33.333 MHz Clock definition
 set_property -dict {PACKAGE_PIN N18 IOSTANDARD LVCMOS33} [get_ports CLOCK_33]
-create_clock -period 33.333 -name CLOCK_33 [get_ports CLOCK_33]
+create_clock -period 30.0 -name CLOCK_33 [get_ports CLOCK_33]
 
 
 ## LEDS

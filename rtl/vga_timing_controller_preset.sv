@@ -17,74 +17,74 @@
 // clock 148.5 MHz
 
 module vga_timing_controller_preset
-#(
-    parameter int VIDEO_ID_CODE = 1
-)
-(
-    input wire clk_pixel,
-	output wire vga_hsync,
-	output wire vga_vsync,
-	output wire [11:0] vga_x,
-	output wire [11:0] vga_y,
-	output wire video_active,
-    output wire [11:0] screen_width,
-    output wire [11:0] screen_height
-);
-generate
+  #(
+     parameter int VIDEO_ID_CODE = 1
+   )
+   (
+     input wire clk_pixel,
+     output wire vga_hsync,
+     output wire vga_vsync,
+     output wire [11:0] vga_x,
+     output wire [11:0] vga_y,
+     output wire video_active,
+     output wire [11:0] screen_width,
+     output wire [11:0] screen_height
+   );
+  generate
     case (VIDEO_ID_CODE)
-        1:
-        begin
-        	vga_timing_controller #(12, 640, 16, 96, 48, 480, 10, 2, 33, 0, 0) vga (
-                .clk(clk_pixel), 
-                .vga_x(vga_x),
-                .vga_y(vga_y),
-                .vga_hsync(vga_hsync),
-                .vga_vsync(vga_vsync),
-                .video_active(video_active)
-            );  
-            assign screen_width = 640;
-            assign screen_height = 480;
-        end
-        2:
-        begin
-	       vga_timing_controller #(12, 800, 40, 128, 88, 600, 1, 4, 23, 1, 1) vga (
-                .clk(clk_pixel), 
-                .vga_x(vga_x),
-                .vga_y(vga_y),
-                .vga_hsync(vga_hsync),
-                .vga_vsync(vga_vsync),
-                .video_active(video_active)
-            );  
-            assign screen_width = 800;
-            assign screen_height = 600;
-        end
-        3:
-        begin
-        	vga_timing_controller #(12, 1024, 24, 136, 160, 768, 3, 6, 29, 0, 0) vga (
-                .clk(clk_pixel), 
-                .vga_x(vga_x),
-                .vga_y(vga_y),
-                .vga_hsync(vga_hsync),
-                .vga_vsync(vga_vsync),
-                .video_active(video_active)
-            );  
-            assign screen_width = 1024;
-            assign screen_height = 768;
-        end
-        4:
-        begin
-        	vga_timing_controller #(12, 1920, 88, 44, 148, 1080, 4, 5, 36, 1, 1) vga (
-                .clk(clk_pixel), 
-                .vga_x(vga_x),
-                .vga_y(vga_y),
-                .vga_hsync(vga_hsync),
-                .vga_vsync(vga_vsync),
-                .video_active(video_active)
-            );  
-            assign screen_width = 1920;
-            assign screen_height = 1080;
-        end
+      1:
+      begin
+        vga_timing_controller #(12, 640, 16, 96, 48, 480, 10, 2, 33, 0, 0) vga (
+          .clk(clk_pixel),
+          .vga_x(vga_x),
+          .vga_y(vga_y),
+          .vga_hsync(vga_hsync),
+          .vga_vsync(vga_vsync),
+          .video_active(video_active)
+        );
+        assign screen_width = 640;
+        assign screen_height = 480;
+      end
+      2:
+      begin
+        vga_timing_controller #(12, 800, 40, 128, 88, 600, 1, 4, 23, 1, 1) vga (
+          .clk(clk_pixel),
+          .vga_x(vga_x),
+          .vga_y(vga_y),
+          .vga_hsync(vga_hsync),
+          .vga_vsync(vga_vsync),
+          .video_active(video_active)
+        );
+        assign screen_width = 800;
+        assign screen_height = 600;
+      end
+      3:
+      begin
+        vga_timing_controller #(12, 1024, 24, 136, 160, 768, 3, 6, 29, 0, 0) vga (
+          .clk(clk_pixel),
+          .vga_x(vga_x),
+          .vga_y(vga_y),
+          .vga_hsync(vga_hsync),
+          .vga_vsync(vga_vsync),
+          .video_active(video_active)
+        );
+        assign screen_width = 1024;
+        assign screen_height = 768;
+      end
+      4:
+      begin
+        vga_timing_controller #(12, 1920, 88, 44, 148, 1080, 4, 5, 36, 1, 1) vga (
+          .clk(clk_pixel),
+          .vga_x(vga_x),
+          .vga_y(vga_y),
+          .vga_hsync(vga_hsync),
+          .vga_vsync(vga_vsync),
+          .video_active(video_active)
+        );
+        assign screen_width = 1920;
+        assign screen_height = 1080;
+      end
     endcase
-endgenerate
+  endgenerate
 endmodule
- 
+

@@ -133,17 +133,7 @@ module top_sim (
                           .ascii_new(ascii_new),
                           .ascii_code(ascii_code)
                         );
-  // ps2_keyboard #(
-  //     .clk_freq(33333333),
-  //     .debounce_counter_size(8)
-  // )
-  // keyboard (
-  //     .clk(CLOCK_33),
-  //     .ps2_clk(PS2_CLOCK),
-  //     .ps2_data(PS2_DATA),
-  //     .ps2_code_new(ascii_new),
-  //     .ps2_code(ascii_code)
-  // );
+
 
   /* verilator lint_off LITENDIAN */
   logic[0:16*8-1] str = "Hello World!1234";
@@ -180,11 +170,12 @@ module top_sim (
       else
         console_clear <= 0;
 
-      //    if ((counter > 0) && (counter < 17)) begin
-      //         console_char <= str[(counter-1)*8 +: 8];
-      //    end
-      //    else
-      //         console_char <= 0;
+      if ((counter > 0) && (counter < 17))
+      begin
+        console_char <= str[(counter-1)*8 +: 8];
+      end
+      else
+        console_char <= 0;
     end
 
   end
