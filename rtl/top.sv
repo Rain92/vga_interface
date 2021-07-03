@@ -18,6 +18,7 @@ module top (
   logic [31:0] counter;
   logic state;
 
+  // blink leds with 1Hz
   assign LED_GREEN = state;
   assign LED_RED = state;
 
@@ -96,6 +97,7 @@ module top (
 
   logic font_set;
 
+  logic key_pressed;
   logic [7:0] console_char;
   logic console_write;
   logic console_clear;
@@ -127,6 +129,7 @@ module top (
                           .ps2_clk(PS2_CLOCK),
                           .ps2_data(PS2_DATA),
                           .ascii_new(ascii_new),
+                          .key_pressed(key_pressed),
                           .ascii_code(ascii_code)
                         );
 
@@ -147,7 +150,7 @@ module top (
       counter <= counter + 1;
     end
 
-    if (ascii_new)
+    if (ascii_new && key_pressed)
     begin
       console_char <= ascii_code;
     end

@@ -10,8 +10,10 @@
 
 #define LOG(...) fprintf(stderr, __VA_ARGS__)
 
-bool use_keyboard = true;
-bool trace = false;
+const int bit_depth = 6;
+
+const bool use_keyboard = true;
+const bool trace = false;
 
 VerilatedVcdC *m_trace;
 
@@ -31,8 +33,6 @@ void keyboard_input(struct mfb_window *window, mfb_key key, mfb_key_mod mod, boo
         input_code = 0x59;
     else
     {
-        if (!isPressed)
-            return;
         input_code = ascii2scancode(key);
     }
 
@@ -108,7 +108,8 @@ int main(int argc, char *argv[])
             if (trace)
                 m_trace->dump(10 * tickcount);
 
-            const int clock_devider = 1 << 10;
+            // shift out keyboard input
+            const int clock_devider = 1 << 9;
             if (use_keyboard && tickcount % clock_devider == 0)
             {
                 if (active_input == 0 && !input_queue.empty())
@@ -175,11 +176,12 @@ int main(int argc, char *argv[])
             if (trace)
                 m_trace->dump(10 * tickcount + 5);
 
+            // grab VGA output
             if (vga->VGA_ACTIVE)
             {
-                buffer[buffer_idx++] = vga->VGA_B << 2;
-                buffer[buffer_idx++] = vga->VGA_G << 2;
-                buffer[buffer_idx++] = vga->VGA_R << 2;
+                buffer[buffer_idx++] = vga->VGA_B << (8 - bit_depth);
+                buffer[buffer_idx++] = vga->VGA_G << (8 - bit_depth);
+                buffer[buffer_idx++] = vga->VGA_R << (8 - bit_depth);
                 buffer[buffer_idx++] = 255;
             }
 
