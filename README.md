@@ -14,7 +14,7 @@ The project uses the 33.333 Mhz PS clock of the ebaz board which has to be manua
 
 ![GitHub Logo](/images/clock.jpg)
 
-To physical VGA connection requires a resistor network DAC. The 18bit interface is implemented in the following way.
+The physical VGA connection requires a resistor network DAC. The 18bit interface is implemented in the following way.
 
 ![GitHub Logo](/images/schematic.png)
 ![GitHub Logo](/images/connector.jpg)
